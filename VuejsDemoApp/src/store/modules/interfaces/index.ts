@@ -1,1 +1,0 @@
-export { default as IRootState } from './i-root-state';
