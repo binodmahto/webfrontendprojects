@@ -1,7 +1,8 @@
 <template>
     <div>
       <br /><br />
-        <h1>User Data : {{ userData }}</h1>
+        <h1>User Data (update on click) : {{ userData }}</h1>
+        <h1>User Data (reactive update) : {{ userComputedData }}</h1>
         <button @click="onFetch()">Read User from Store</button>
        <br />
     </div>
@@ -33,6 +34,10 @@ import {
              ...mapGetters(NAMESPACE, {
                 getUser: GlobalUserGetterEnum.GET_USER,
             }),
+
+            userComputedData(){
+                return this.getUser.firstname + ' ' + this.getUser.lastname + ', '+ this.getUser.email;
+            }
         },
 
         created(){
